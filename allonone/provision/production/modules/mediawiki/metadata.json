@@ -1,0 +1,14 @@
+{
+  "name": "server4001-mediawiki",
+  "version": "0.1.0",
+  "author": "Brice Bentler",
+  "summary": "Install MediaWiki on Linux (RHEL and Debian based).",
+  "license": "MIT",
+  "source": "",
+  "issues_url": null,
+  "project_page": null,
+  "dependencies": [
+    {"version_requirement":">= 1.0.0","name":"puppetlabs-stdlib"}
+  ]
+}
+

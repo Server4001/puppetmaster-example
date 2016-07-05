@@ -1,0 +1,31 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+VAGRANTFILE_API_VERSION = "2"
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  config.vm.define "puppetmaster" do |puppetmaster|
+    puppetmaster.vm.box = "bento/centos-6.7"
+    puppetmaster.vm.box_version = "2.2.7"
+    puppetmaster.vm.hostname = "puppetmaster"
+    puppetmaster.vm.network "private_network", ip: "192.168.36.11"
+  end
+
+  config.vm.define "wiki" do |wiki|
+    wiki.vm.box = "server4001/bento-puppet"
+    wiki.vm.box_version = "0.1.0"
+    wiki.vm.hostname = "wiki"
+    wiki.vm.network "private_network", ip: "192.168.36.12"
+  end
+
+  config.vm.define "wikitest" do |wikitest|
+    wikitest.vm.box = "ubuntu/trusty64"
+    wikitest.vm.box_version = "20160208.0.0"
+    wikitest.vm.hostname = "wikitest"
+    wikitest.vm.network "private_network", ip: "192.168.36.13"
+
+    wikitest.vm.provider :virtualbox do |p|
+      p.customize ["modifyvm", :id, "--memory", 2048]
+    end
+  end
+end
