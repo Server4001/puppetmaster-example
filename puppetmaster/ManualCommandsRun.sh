@@ -79,3 +79,10 @@ sudo chkconfig httpd on
 # After setting up the agent on the other centos and ubuntu server, and sending the certificate sign requests, we signed the certificates:
 sudo puppet cert sign wiki
 sudo puppet cert sign wikitest
+
+
+# Setting up Hiera:
+# Copy the contents of files/hiera.yaml to: /etc/puppet/hiera.yaml
+# Copy files/wiki.yaml to /var/lib/hiera/wiki.yaml
+# Copy files/wikitest.yaml to /var/lib/hiera/wikitest.yaml
+# Copy files/wikidefault.yaml to /var/lib/hiera/wikidefault.yaml

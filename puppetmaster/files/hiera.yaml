@@ -1,0 +1,8 @@
+:backends:
+  - yaml
+:yaml:
+  :datadir:
+:hierarchy:
+  - "%{clientcert}"
+  - wikidefault
+

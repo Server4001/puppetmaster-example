@@ -1,10 +1,12 @@
 class mediawiki {
-  $wiki_db_type = "mysql"
-  $wiki_db_server = "localhost"
-  $wiki_db_name = "mediawiki"
-  $wiki_db_user = "mediawiki"
-  $wiki_db_pass = "password"
-  $wiki_upgrade_key = "90ef24f503f8624e"
+  $wiki_site_name = hiera("mediawiki::wikisitename")
+  $wiki_server = hiera("mediawiki::wikiserver")
+  $wiki_db_type = hiera("mediawiki::dbtype")
+  $wiki_db_server = hiera("mediawiki::dbserver")
+  $wiki_db_name = hiera("mediawiki::dbname")
+  $wiki_db_user = hiera("mediawiki::dbuser")
+  $wiki_db_pass = hiera("mediawiki::dbpass")
+  $wiki_upgrade_key = hiera("mediawiki::wikiupgradekey")
 
   $mediawiki_database_file = "/tmp/mediawiki.sql"
 
@@ -35,6 +37,7 @@ class mediawiki {
     ensure => "absent",
   }
 
+  # TODO : Uncomment.
   # vcsrepo { "/var/www/html":
   #   ensure   => "present",
   #   provider => "git",

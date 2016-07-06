@@ -1,0 +1,8 @@
+---
+mediawiki::dbtype: mysql
+mediawiki::dbserver: localhost
+mediawiki::dbname: mediawiki
+mediawiki::dbuser: mediawiki
+mediawiki::dbpass: password
+mediawiki::wikiupgradekey: 90ef24f503f8624e
+
