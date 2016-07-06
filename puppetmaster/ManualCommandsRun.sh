@@ -81,8 +81,15 @@ sudo puppet cert sign wiki
 sudo puppet cert sign wikitest
 
 
+# Copy allonone/provision/production/manifests to /etc/puppet/environments/production/manifests
+# Copy allonone/provision/production/modules to /etc/puppet/environments/production/modules
+
+
 # Setting up Hiera:
 # Copy the contents of files/hiera.yaml to: /etc/puppet/hiera.yaml
-# Copy files/wiki.yaml to /var/lib/hiera/wiki.yaml
-# Copy files/wikitest.yaml to /var/lib/hiera/wikitest.yaml
-# Copy files/wikidefault.yaml to /var/lib/hiera/wikidefault.yaml
+# Copy allonone/provision/production/hiera/wiki.yaml to /var/lib/hiera/wiki.yaml
+# Copy allonone/provision/production/hiera/wikitest.yaml to /var/lib/hiera/wikitest.yaml
+# Copy allonone/provision/production/hiera/wikidefault.yaml to /var/lib/hiera/wikidefault.yaml
+
+
+# Changing the Hiera config requires a restart of httpd on puppetmaster. Not sure if this is required because of hiera.yaml or the individual node configs.

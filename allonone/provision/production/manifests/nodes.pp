@@ -1,11 +1,7 @@
 node "wiki" {
-  class { "ntpd": }
-  class { "common_packages": }
-  class { "mediawiki": }
+  hiera_include("classes")
 }
 
 node "wikitest" {
-  class { "ntpd": }
-  class { "common_packages": }
-  class { "mediawiki": }
+  hiera_include("classes")
 }

@@ -7,4 +7,9 @@ fi
 
 # User specific aliases and functions
 alias ll="ls -lah"
-alias deploy="sudo rm -rf /etc/puppet/environments/production/manifests && sudo rm -rf /etc/puppet/environments/production/modules && sudo cp -R /vagrant/provision/production/manifests /etc/puppet/environments/production/manifests && sudo cp -R /vagrant/provision/production/modules /etc/puppet/environments/production/modules"
+alias deploy="sudo rm -rf /etc/puppet/environments/production/manifests && \
+sudo rm -rf /var/lib/hiera/{wiki,wikitest,wikidefault}.yaml && \
+sudo rm -rf /etc/puppet/environments/production/modules && \
+sudo cp -R /vagrant/provision/production/manifests /etc/puppet/environments/production/manifests && \
+sudo cp -R /vagrant/provision/production/modules /etc/puppet/environments/production/modules && \
+sudo cp /vagrant/provision/production/hiera/*.yaml /var/lib/hiera/"

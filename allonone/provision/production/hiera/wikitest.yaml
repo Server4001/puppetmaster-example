@@ -1,4 +1,7 @@
 ---
+classes:
+  - ntpd
+  - common_packages
+  - mediawiki
 mediawiki::wikisitename: Wiki Test
 mediawiki::wikiserver: http://dev.puppet-fundamentals-ubuntu.loc
-
