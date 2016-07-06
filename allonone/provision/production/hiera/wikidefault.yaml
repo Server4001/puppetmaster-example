@@ -1,4 +1,8 @@
 ---
+classes:
+  - ntpd
+  - common_packages
+  - mediawiki
 mediawiki::dbtype: mysql
 mediawiki::dbserver: localhost
 mediawiki::dbname: mediawiki
