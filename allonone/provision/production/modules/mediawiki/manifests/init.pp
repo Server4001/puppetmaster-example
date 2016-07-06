@@ -33,19 +33,21 @@ class mediawiki {
 
   class { "::apache::mod::php": }
 
-  file { "/var/www/html/index.html":
+  file { "html_index_file":
+    path   => "/var/www/html/index.html",
     ensure => "absent",
   }
 
-  # TODO : Uncomment.
-  # vcsrepo { "/var/www/html":
-  #   ensure   => "present",
-  #   provider => "git",
-  #   source   => "https://github.com/wikimedia/mediawiki.git",
-  #   revision => "REL1_23"
-  # }
-
-  # File["/var/www/html/index.html"] -> Vcsrepo["/var/www/html"]
+  vcsrepo { "mediawiki":
+    name     => "/var/www/html",
+    ensure   => "present",
+    owner    => "root",
+    group    => "root",
+    provider => "git",
+    source   => "https://github.com/wikimedia/mediawiki.git",
+    revision => "REL1_23",
+    require  => File["html_index_file"],
+  }
 
   file { "mediawiki_settings":
     path    => "/var/www/html/LocalSettings.php",
@@ -53,9 +55,8 @@ class mediawiki {
     owner   => "root",
     group   => "root",
     mode    => 0644,
+    require => Vcsrepo["mediawiki"],
   }
-
-  # File["/var/www/html/LocalSettings.php"] <- Vcsrepo["/var/www/html"]
 
   file { "mediawiki_database":
     path    => $mediawiki_database_file,
