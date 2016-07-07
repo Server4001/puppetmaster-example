@@ -23,3 +23,7 @@ sudo puppet agent --verbose --no-daemonize --onetime
 # After the certificates have been signed on the master server, initialize them:
 sudo puppet agent --verbose --no-daemonize --onetime
 
+
+# After configuring the agent to run automatically, we must start the service and configure it to start at server boot:
+# Copy the contents of files/puppet.default to /etc/default/puppet
+sudo service puppet start
