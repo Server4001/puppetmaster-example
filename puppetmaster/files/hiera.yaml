@@ -1,8 +1,8 @@
 :backends:
   - yaml
 :yaml:
-  :datadir: "/var/lib/hiera"
+  :datadir: "/etc/puppet/environments/%{environment}/hieradata"
 :hierarchy:
-  - "%{clientcert}"
-  - wikidefault
+  - "%{environment}"
+  - default
 

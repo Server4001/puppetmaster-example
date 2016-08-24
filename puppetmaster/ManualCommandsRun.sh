@@ -117,3 +117,7 @@ sudo service httpd restart
 # Copy allonone/provision/production/hiera/wiki.yaml to /var/lib/hiera/wiki.yaml
 # Copy allonone/provision/production/hiera/wikitest.yaml to /var/lib/hiera/wikitest.yaml
 # Copy allonone/provision/production/hiera/wikidefault.yaml to /var/lib/hiera/wikidefault.yaml
+
+
+# Setting up r10k:
+# Copy files/r10k.yaml to: /etc/puppetlabs/r10k/r10k.yaml
