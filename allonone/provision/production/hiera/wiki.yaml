@@ -1,5 +1,0 @@
----
-classes:
-  - blah
-mediawiki::wikisitename: Wiki
-mediawiki::wikiserver: http://dev.puppet-fundamentals-centos.loc
